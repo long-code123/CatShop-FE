@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import {
   UntypedFormBuilder,
   UntypedFormGroup,
@@ -12,13 +13,13 @@ import { LoginRequest } from './login.model';
 
 @Component({
   selector: 'app-login',
-  imports: [ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
 })
 export class LoginComponent implements OnInit {
   public loginForm!: UntypedFormGroup;
-  private submitted = false;
+  public submitted = false;
 
   constructor(
     private readonly formBuilder: UntypedFormBuilder,
@@ -31,17 +32,19 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
+  ngOnInit(): void {}
+
+  get f() {
+    return this.loginForm.controls;
   }
 
-  public onSubmit(): void {
+  onSubmit(): void {
     this.submitted = true;
 
     if (!this.loginForm.valid) {
       const loginRequest: LoginRequest = {
-        email: this.loginForm.controls['username'].value,
-        password: this.loginForm.controls['password'].value,
+        email: this.f['username'].value,
+        password: this.f['password'].value,
       };
 
       this.customerService.login(loginRequest).then(
