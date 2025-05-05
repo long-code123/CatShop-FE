@@ -1,1 +1,29 @@
-<p>header works!</p>
+<nav class="navbar navbar-expand-lg bg-light shadow-sm sticky-top">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center fw-bold fs-4 text-primary" routerLink="/">
+      CatShop
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCatshop"
+            aria-controls="navbarCatshop" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarCatshop">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link text-dark fw-semibold" routerLink="/" routerLinkActive="active">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark fw-semibold" routerLink="/shop" routerLinkActive="active">Shop</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark fw-semibold" routerLink="/about" routerLinkActive="active">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark fw-semibold" routerLink="/contact" routerLinkActive="active">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

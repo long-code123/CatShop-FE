@@ -1,10 +1,38 @@
-<div>
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-        <div class="form-group">
-            <label for="email" class="form-label">email</label>
-            <input id="email" formControlName="email" type="email" class="form-control"
-                [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" placeholder="Enter email">
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+  <div class="card p-4 shadow-lg" style="width: 400px; border-radius: 1rem">
+    <div class="text-center mb-4">
+      <h3 class="fw-bold text-primary">Cat Shop</h3>
+    </div>
 
-        </div>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input
+          id="email"
+          formControlName="email"
+          type="email"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f['email'].errors }"
+          placeholder="Enter email"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input
+          type="password"
+          formControlName="password"
+          id="password"
+          class="form-control"
+          placeholder="Enter your password"
+        />
+      </div>
+
+      <button type="submit" class="btn btn-primary w-100">Login</button>
+
+      <div class="text-center mt-3">
+        <small>Don't have an account? <a href="#" class="text-decoration-none">Sign up</a></small>
+      </div>
     </form>
+  </div>
 </div>

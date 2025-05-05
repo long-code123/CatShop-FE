@@ -41,15 +41,20 @@ export class LoginComponent implements OnInit {
   onSubmit(): void {
     this.submitted = true;
 
-    if (!this.loginForm.valid) {
+    if (!this.loginForm.invalid) {
       const loginRequest: LoginRequest = {
-        email: this.f['username'].value,
+        email: this.f['email'].value,
         password: this.f['password'].value,
       };
 
       this.customerService.login(loginRequest).then(
-        (res) => {},
-        (error) => {}
+        (res) => {
+          console.log(res);
+          this.router.navigate(['/']);
+        },
+        (error) => {
+          console.log(error);
+        }
       );
     }
   }

@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import { CatListComponent } from './cat-list.component';
+
 const routes: Routes = [
-  { path: '', redirectTo: 'cat-list', pathMatch: 'full' },
   {
-    path: 'cat-list',
-    loadChildren: () => import('./cat-list/cat-list.module').then((m) => m.CatListModule),
+    path: '',
+    component: CatListComponent,
   },
 ];
 
@@ -13,4 +14,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class PagesRoutingModule {}
+export class CatListRoutingModule {}

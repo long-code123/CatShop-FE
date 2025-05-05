@@ -14,6 +14,8 @@ export class CustomerService {
   login = (body: any): Promise<Object> => {
     return new Promise((resolve, reject) => {
       const url = `${this.prefix}/login`;
+      console.log('Login URL:', url);
+      console.log('Login Body:', body);
       this.apiService.post(url, body).subscribe({
         next: (res) => resolve(res),
         error: (err) => reject(new Error(err?.message ?? 'Login error')),
